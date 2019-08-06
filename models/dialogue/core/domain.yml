@@ -1,0 +1,136 @@
+%YAML 1.1
+---
+actions:
+- action_save_appointment_place
+- action_save_appointment_schedule
+- action_save_confirm_doctor
+- action_save_symptomp
+- action_save_symptomp_duration
+- action_save_user_name
+- utter_ask_appointmentPlace
+- utter_ask_appointmentSchedule
+- utter_ask_confirm_doctor
+- utter_ask_continue
+- utter_ask_name
+- utter_ask_symptomps
+- utter_ask_symptompsDuration
+- utter_chitchat
+- utter_default
+- utter_end_conversation
+- utter_explain_chatbot
+- utter_explain_doctor_available
+- utter_greet
+- utter_noworries
+- utter_slots_values
+- utter_submit
+config:
+  store_entities_as_slots: true
+entities:
+- appointmentPlace_entity
+- appointmentSchedule_entity
+- confirm_doctor_entity
+- symptompDuration_entity
+- symptomp_entity
+- user_name_entity
+forms: []
+intents:
+- affirm:
+    use_entities: true
+- appointmentPlace_intent:
+    use_entities: true
+- appointmentSchedule_intent:
+    use_entities: true
+- booking_doctor_intent:
+    use_entities: true
+- chitchat:
+    use_entities: true
+- confirmDoctor_intent:
+    use_entities: true
+- deny:
+    use_entities: true
+- greet:
+    use_entities: true
+- stop:
+    use_entities: true
+- symtompDuration_intent:
+    use_entities: true
+- symptomp_intent:
+    use_entities: true
+- thankyou:
+    use_entities: true
+slots:
+  appointmentPlace_entity:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.TextSlot
+  appointmentSchedule_entity:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.TextSlot
+  confirm_doctor_entity:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.TextSlot
+  symptompDuration_entity:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.TextSlot
+  symptomp_entity:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.TextSlot
+  user_name_entity:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.TextSlot
+templates:
+  utter_ask_appointmentPlace:
+  - text: Dimana anda mau membuat janji/bertemu dengan dokter?
+  utter_ask_appointmentSchedule:
+  - text: Kapan anda mau membuat janji/bertemu dengan dokter
+  utter_ask_confirm_doctor:
+  - text: oke sebelumnya sudah pernah booking dokter disini?
+  utter_ask_continue:
+  - text: apakah anda mau lanjut untuk booking dokter ini?
+  utter_ask_name:
+  - text: Boleh dibantu namanya siapa?
+  utter_ask_symptomps:
+  - text: Apa yang anda butuhkan dengan dokter?
+  utter_ask_symptompsDuration:
+  - text: Sudah berapa lama gejala yang anda alami?
+  utter_chitchat:
+  - text: chitchat
+  utter_default:
+  - text: maaf saat ini saya hanya menerima permintaan booking doctor, coba masukan
+      pertanyaan lain seperti 'saya mau periksa'
+  - text: maaf saat ini saya hanya menerima permintaan booking doctor, coba masukan
+      pertanyaan lain seperti 'saya mau booking dokter'
+  - text: maaf saat ini saya hanya menerima permintaan booking doctor, coba masukan
+      pertanyaan lain seperti 'saya mau konsultasi'
+  utter_end_conversation:
+  - text: anda telah mengakhiri sesi terakhir dalam conversation ini
+  utter_explain_chatbot:
+  - text: asisstant ini digunakan untuk membantu anda dalam hal booking doctor
+  utter_explain_doctor_available:
+  - text: "oke kami punya beberapa rekomendasi dokter :\n 1. dr. andre \n 2. dr. kevin\
+      \ \n 3. dr. louis \n 4. dr. hudiyati \n 5. dr. allert \n 6. dr. alni \n 7. dr.\
+      \ nadiem \n 8. dr. fathir \n 9. dr. amir \n silahkan pilih salah satu dari list\
+      \ diatas"
+  utter_greet:
+  - text: Hello! Saya adalah booking doctor assistant! Adakah yang bisa saya bantu?
+  - text: Hi! Saya adalah booking doctor assistant! Adakah yang bisa saya bantu?
+  - text: Alo! Saya adalah booking doctor assistant! Adakah yang bisa saya bantu?
+  - text: Halo! Saya adalah booking doctor assistant! Adakah yang bisa saya bantu?
+  utter_noworries:
+  - text: sama sama :)
+  - text: terima kasih :)
+  - text: terima kasih juga
+  - text: terima kasih kembali :)
+  utter_slots_values:
+  - text: "Saya akan membuat janji dengan dokter sesuai dengan parameter berikut:\n\
+      \ - pilihan dokter : {confirm_doctor_entity}\n - nama : {user_name_entity}\n\
+      \ - symptomp : {symptomp_entity}\n - symptompDuration : {symptompDuration_entity}\n\
+      \ - appointmenSchedule : {appointmentSchedule_entity}\n - appointmentPlace :\
+      \ {appointmentPlace_entity}\n"
+  utter_submit:
+  - text: Oke semua sudah selesai saya akan merangkum semuanya :)

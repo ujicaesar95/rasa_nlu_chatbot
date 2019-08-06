@@ -1,0 +1,4 @@
+2019-07-31 13:55:07,081 [DEBUG]  Available web server routes: 
+/webhooks/rest                                     GET                            custom_webhook_CmdlineInput.health
+/webhooks/rest/webhook                             POST                           custom_webhook_CmdlineInput.receive
+2019-07-31 14:00:09,784 [ERROR]  Transport closed @ ('127.0.0.1', 49882) and exception experienced during error handling

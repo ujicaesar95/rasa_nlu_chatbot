@@ -1,0 +1,109 @@
+intents:
+- affirm
+- appointmentPlace_intent
+- appointmentSchedule_intent
+- booking_doctor_intent
+- chitchat
+- confirmDoctor_intent
+- deny
+- greet
+- stop
+- symtompDuration_intent
+- symptomp_intent
+- thankyou
+
+entities:
+- confirm_doctor_entity 
+- symptomp_entity
+- user_name_entity
+- symptompDuration_entity
+- appointmentSchedule_entity
+- appointmentPlace_entity
+
+slots:
+  confirm_doctor_entity:
+    type: text
+  symptomp_entity:
+    type: text
+  user_name_entity:
+    type: text
+  symptompDuration_entity:
+    type: text
+  appointmentSchedule_entity:
+    type: text
+  appointmentPlace_entity:
+    type: text
+  
+
+actions:
+- utter_submit
+- utter_slots_values
+- utter_noworries
+- utter_chitchat
+- utter_ask_continue
+- utter_default
+- utter_greet
+- utter_ask_name
+- utter_ask_symptomps
+- utter_ask_symptompsDuration
+- utter_ask_appointmentSchedule
+- utter_ask_appointmentPlace
+- utter_end_conversation
+- utter_explain_chatbot
+- utter_ask_confirm_doctor
+- utter_explain_doctor_available
+- action_save_confirm_doctor
+- action_save_user_name
+- action_save_symptomp
+- action_save_symptomp_duration
+- action_save_appointment_schedule
+- action_save_appointment_place
+
+templates:
+
+  utter_submit:
+    - text: "Oke semua sudah selesai saya akan merangkum semuanya :)"
+  utter_slots_values:
+    - text : "Saya akan membuat janji dengan dokter sesuai dengan parameter berikut:\n
+              - pilihan dokter : {confirm_doctor_entity}\n
+              - nama : {user_name_entity}\n
+              - symptomp : {symptomp_entity}\n
+              - symptompDuration : {symptompDuration_entity}\n
+              - appointmenSchedule : {appointmentSchedule_entity}\n
+              - appointmentPlace : {appointmentPlace_entity}\n"
+  utter_noworries:
+    - text: "sama sama :)"
+    - text: "terima kasih :)"
+    - text: "terima kasih juga"
+    - text: "terima kasih kembali :)"
+  utter_chitchat:
+    - text: "chitchat"
+  utter_ask_continue:
+    - text: "apakah anda mau lanjut untuk booking dokter ini?"
+  utter_default:
+    - text: "maaf saat ini saya hanya menerima permintaan booking doctor, coba masukan pertanyaan lain seperti 'saya mau periksa'"
+    - text: "maaf saat ini saya hanya menerima permintaan booking doctor, coba masukan pertanyaan lain seperti 'saya mau booking dokter'"
+    - text: "maaf saat ini saya hanya menerima permintaan booking doctor, coba masukan pertanyaan lain seperti 'saya mau konsultasi'"
+  utter_greet:
+    - text: "Hello! Saya adalah booking doctor assistant! Adakah yang bisa saya bantu?"
+    - text: "Hi! Saya adalah booking doctor assistant! Adakah yang bisa saya bantu?"
+    - text: "Alo! Saya adalah booking doctor assistant! Adakah yang bisa saya bantu?"
+    - text: "Halo! Saya adalah booking doctor assistant! Adakah yang bisa saya bantu?"
+  utter_ask_name:
+    - text: "Boleh dibantu namanya siapa?"
+  utter_ask_symptomps :
+    - text: "Apa yang anda butuhkan dengan dokter?"
+  utter_ask_symptompsDuration :
+    - text: "Sudah berapa lama gejala yang anda alami?"
+  utter_ask_appointmentSchedule : 
+    - text: "Kapan anda mau membuat janji/bertemu dengan dokter"
+  utter_ask_appointmentPlace :
+    - text: "Dimana anda mau membuat janji/bertemu dengan dokter?"
+  utter_end_conversation :
+    - text: anda telah mengakhiri sesi terakhir dalam conversation ini 
+  utter_explain_chatbot :
+    - text: "asisstant ini digunakan untuk membantu anda dalam hal booking doctor"
+  utter_ask_confirm_doctor :
+    - text: "oke sebelumnya sudah pernah booking dokter disini?"
+  utter_explain_doctor_available :
+    - text: "oke kami punya beberapa rekomendasi dokter :\n 1. dr. andre \n 2. dr. kevin \n 3. dr. louis \n 4. dr. hudiyati \n 5. dr. allert \n 6. dr. alni \n 7. dr. nadiem \n 8. dr. fathir \n 9. dr. amir \n silahkan pilih salah satu dari list diatas" 
